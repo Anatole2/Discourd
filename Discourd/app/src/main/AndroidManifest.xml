@@ -63,7 +63,7 @@
             android:name=".vue.Vue_Notifications"
             android:exported="false" />
         <activity
-            android:name=".vue.Vue_Apparence"
+            android:name=".vue.Vue_Theme"
             android:exported="false" />
         <activity
             android:name=".vue.Vue_Demandes_Amis"

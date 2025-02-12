@@ -8,7 +8,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -54,7 +53,7 @@ public class Vue_Parametres extends AppCompatActivity {
         });
 
         layoutApparence.setOnClickListener(v -> {
-            Intent intent = new Intent(Vue_Parametres.this, Vue_Apparence.class);
+            Intent intent = new Intent(Vue_Parametres.this, Vue_Theme.class);
             startActivity(intent);
         });
 
