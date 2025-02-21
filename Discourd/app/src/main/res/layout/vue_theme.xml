@@ -21,24 +21,26 @@
             android:layout_gravity="center"
             android:paddingBottom="16dp"/>
 
-        <!-- Texte pour indiquer l'état du thème -->
-        <TextView
-            android:id="@+id/themeStatus"
+        <!-- Boutons de changement de thème -->
+        <Button
+            android:id="@+id/buttonSombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/FondGrisFonce"
             android:text="Thème Sombre"
             android:textColor="@color/TitreBlanc"
+            android:fontFamily="sans-serif-medium"
             android:layout_gravity="center"
-            android:paddingBottom="16dp"/>
+            android:layout_marginBottom="16dp"/>
 
-        <!-- Switch pour changer le thème -->
-        <Switch
-            android:id="@+id/themeSwitch"
+        <Button
+            android:id="@+id/buttonClair"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:textOff="Thème Clair"
-            android:textOn="Thème Sombre"
+            android:backgroundTint="@color/FondGrisFonce"
+            android:text="Thème Clair"
+            android:textColor="@color/TitreBlanc"
+            android:fontFamily="sans-serif-medium"
             android:layout_gravity="center"/>
 
         <!-- Bouton retour à gauche -->

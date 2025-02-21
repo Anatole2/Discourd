@@ -2,6 +2,7 @@ package com.example.discourd.vue;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -98,6 +99,35 @@ public class Vue_Confidentialite extends AppCompatActivity {
                         .show();
             }
         });
+
+        // Boutons pour gérer l'authentification biométrique
+        Button buttonActiverEmpreintes = findViewById(R.id.buttonActiverEmpreintes);
+        Button buttonDesactiverEmpreintes = findViewById(R.id.buttonDesactiverEmpreintes);
+
+        // Récupérer les préférences
+        SharedPreferences sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        // Désactivation de l'authentification biométrique
+        buttonDesactiverEmpreintes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.putBoolean("biometric_enabled", false);
+                editor.apply();
+                Toast.makeText(Vue_Confidentialite.this, "Authentification biométrique désactivée", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Activation de l'authentification biométrique
+        buttonActiverEmpreintes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.putBoolean("biometric_enabled", true);
+                editor.apply();
+                Toast.makeText(Vue_Confidentialite.this, "Authentification biométrique activée", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override

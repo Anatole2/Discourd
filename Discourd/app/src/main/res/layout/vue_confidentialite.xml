@@ -22,7 +22,15 @@
             android:layout_gravity="center"
             android:paddingBottom="16dp"/>
 
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Localisation"
+            android:textSize="20sp"
+            android:textColor="@color/TitreBlanc"
+            android:fontFamily="sans-serif-medium"
+            android:layout_gravity="center"
+            android:paddingBottom="16dp"/>
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -59,16 +67,59 @@
                     android:id="@+id/buttonDesactiverLocalisation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Desctiver ma localisation" />
+                    android:text="Desactiver ma localisation" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connexion"
+            android:textSize="20sp"
+            android:textColor="@color/TitreBlanc"
+            android:fontFamily="sans-serif-medium"
+            android:layout_gravity="center"
+            android:paddingBottom="16dp"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/FondGrisFonce"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/buttonActiverEmpreintes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Activer la connexion avec les donnees biometriques" />
 
 
             </LinearLayout>
-
-
-
-
-
         </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/FondGrisFonce"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/buttonDesactiverEmpreintes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Desactiver la connexion avec les donnees biometriques" />
+            </LinearLayout>
+        </FrameLayout>
+
         <!-- Bouton retour à gauche -->
         <Button
             android:id="@+id/buttonRetourParametres"
