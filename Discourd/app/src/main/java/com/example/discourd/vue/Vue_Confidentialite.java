@@ -115,6 +115,10 @@ public class Vue_Confidentialite extends AppCompatActivity {
                 editor.putBoolean("biometric_enabled", false);
                 editor.apply();
                 Toast.makeText(Vue_Confidentialite.this, "Authentification biométrique désactivée", Toast.LENGTH_SHORT).show();
+/*
+                // Redirige vers les paramètres de sécurité pour une désactivation complète
+                Intent intent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
+                startActivity(intent);*/
             }
         });
 
@@ -125,6 +129,10 @@ public class Vue_Confidentialite extends AppCompatActivity {
                 editor.putBoolean("biometric_enabled", true);
                 editor.apply();
                 Toast.makeText(Vue_Confidentialite.this, "Authentification biométrique activée", Toast.LENGTH_SHORT).show();
+/*
+                // Redirige vers les paramètres de sécurité pour une désactivation complète
+                Intent intent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
+                startActivity(intent);*/
             }
         });
 

@@ -3,11 +3,14 @@ package com.example.discourd.util;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.biometric.BiometricManager;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 
 import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -41,13 +44,40 @@ public class MainActivity extends AppCompatActivity {
         boolean biometricEnabled = sharedPreferences.getBoolean("biometric_enabled", true);
 
         if (preferencesManager.getUser() != null) {
-            if (isBiometricAvailable()) {
-                showBiometricPrompt(preferencesManager);
+            if (biometricEnabled) {
+                // Lancer l'authentification biométrique
+                BiometricPrompt biometricPrompt = new BiometricPrompt(this,
+                        Executors.newSingleThreadExecutor(), new BiometricPrompt.AuthenticationCallback() {
+                    @Override
+                    public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
+                        Intent intent = new Intent(MainActivity.this, Vue_Accueil.class);
+                        startActivity(intent);
+                        finish();
+                    }
+
+                    @Override
+                    public void onAuthenticationFailed() {
+                        Toast.makeText(MainActivity.this, "Échec de l'authentification", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                        .setTitle("Connexion biométrique")
+                        .setSubtitle("Utilisez votre empreinte digitale pour vous connecter")
+                        .setNegativeButtonText("Annuler")
+                        .build();
+
+                biometricPrompt.authenticate(promptInfo);
             } else {
-                goToHome();
+                // Si la biométrie est désactivée, aller directement à la page de connexion
+                Intent intent = new Intent(this, Vue_Connexion.class);
+                startActivity(intent);
+                finish();
             }
         } else {
-            goToLogin();
+            Intent intent = new Intent(this, Vue_Connexion.class);
+            startActivity(intent);
+            finish();
         }
     }
 
